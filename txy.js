@@ -117,7 +117,6 @@ app.server = app.listen(port, host, () => {
 })
 
 module.exports = app
-const express = require('express')
 const next = require('next')
 async function createServer() {
   const app = next({ dev: false })
