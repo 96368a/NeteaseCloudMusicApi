@@ -1,13 +1,10 @@
-// 领取会员成长值
+// 获取 VIP 信息
 
 module.exports = (query, request) => {
-  const data = {
-    taskIds: query.ids,
-  }
   return request(
     'POST',
-    `https://music.163.com/weapi/vipnewcenter/app/level/task/reward/get`,
-    data,
+    `https://music.163.com/weapi/music-vip-membership/front/vip/info`,
+    {},
     {
       crypto: 'weapi',
       cookie: query.cookie,
