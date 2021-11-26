@@ -140,23 +140,3 @@ const host = process.env.HOST || ''
 
 
 module.exports = app
-
-const next = require('next')
-async function createServer() {
-  const app = next({ dev: false })
-  const handle = app.getRequestHandler()
-
-  await app.prepare()
-  const server = express()
-  server.all('*', (req, res) => {
-    return handle(req, res)
-  })
-  // define binary type for response
-  // if includes, will return base64 encoded, very useful for images
-  server.binaryTypes = ['*/*']
-  return server
-}
-// comment out `listen`
-// exports app server
-// createServer().litsen(3000);
-module.exports = createServer
